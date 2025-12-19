@@ -15,7 +15,7 @@ COPY build_files /
 # CentOS base images: quay.io/centos-bootc/centos-bootc:stream10
 
 # FROM quay.io/fedora/fedora-bootc:latest
-FROM ghcr.io/ublue-os/bluefin:stable
+FROM ghcr.io/ublue-os/bluefin-dx:stable
 
 ### [IM]MUTABLE /opt
 ## Some bootable images, like Fedora, have /opt symlinked to /var/opt, in order to
