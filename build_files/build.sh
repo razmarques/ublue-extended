@@ -16,7 +16,7 @@ name=TUXEDO Computers
 baseurl=https://rpm.tuxedocomputers.com/fedora/$releasever/$basearch/base
 enabled=1
 gpgcheck=1
-gpgkey=https://rpm.tuxedocomputers.com/fedora/tuxedo-computers.key
+gpgkey=https://rpm.tuxedocomputers.com/fedora/$releasever/0x54840598.pub.asc
 EOF
 
 # this installs a package from fedora repos
