@@ -13,7 +13,7 @@ set -ouex pipefail
 cat > /etc/yum.repos.d/tuxedo-computers.repo << 'EOF'
 [tuxedo-computers]
 name=TUXEDO Computers
-baseurl=https://rpm.tuxedocomputers.com/fedora/$releasever/$basearch
+baseurl=https://rpm.tuxedocomputers.com/fedora/$releasever/$basearch/base
 enabled=1
 gpgcheck=1
 gpgkey=https://rpm.tuxedocomputers.com/fedora/tuxedo-computers.key
