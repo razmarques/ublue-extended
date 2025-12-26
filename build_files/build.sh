@@ -9,8 +9,21 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
+# Add Tuxedo Computers repository
+cat > /etc/yum.repos.d/tuxedo-computers.repo << 'EOF'
+[tuxedo-computers]
+name=TUXEDO Computers
+baseurl=https://rpm.tuxedocomputers.com/fedora/$releasever/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://rpm.tuxedocomputers.com/fedora/tuxedo-computers.key
+EOF
+
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 install -y tmux
+
+# Install Tuxedo Control Center
+dnf5 install -y tuxedo-control-center 
 
 # Use a COPR Example:
 #
