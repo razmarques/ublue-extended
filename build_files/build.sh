@@ -23,7 +23,16 @@ EOF
 dnf5 install -y tmux
 
 # Install Tuxedo Control Center
-dnf5 install -y tuxedo-control-center 
+# Post-install scripts may fail in container (systemd not running), but package installs successfully
+dnf5 install -y tuxedo-control-center || {
+    echo "Note: tuxedo-control-center post-install scripts failed (expected in container build)"
+    # Verify the package actually installed despite scriptlet failures
+    rpm -q tuxedo-control-center || exit 1
+}
+
+# Manually enable TCCD services since post-install scripts may have failed
+systemctl enable tccd.service || true
+systemctl enable tccd-sleep.service || true 
 
 # Use a COPR Example:
 #
